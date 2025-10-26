@@ -325,7 +325,7 @@
       <div class="contact-content">
         
         <div class="social-grid">
-          <a class="social-card" href="#" id="open-resume-btn" aria-label="View Resume">
+          <a class="social-card" href="https://drive.google.com/file/d/14KJrOJlYpKMyzHbg9HglPNPas9sGh_0Q/view?usp=sharing" target="_blank" rel="noopener noreferrer">
             <span class="social-icon"><img src="cv.png" alt="" loading="lazy"></span>
             <div class="social-info">
               <span class="social-label">My Resume</span>
@@ -417,24 +417,6 @@
     </div>
   </section>
 
-  <!-- PDF Modal -->
-  <div id="resume-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title">My Resume</h2>
-        <button class="modal-close" id="close-resume-btn" aria-label="Close modal">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <iframe id="resume-iframe" src="MyResume.pdf" title="Resume PDF"></iframe>
-      </div>
-    </div>
-  </div>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
@@ -494,43 +476,6 @@
 
     document.querySelectorAll('.project-card, .skill-category, .about-content, .social-card').forEach(el => {
       observer.observe(el);
-    });
-
-    // PDF Modal functionality
-    const modal = document.getElementById('resume-modal');
-    const openBtn = document.getElementById('open-resume-btn');
-    const closeBtn = document.getElementById('close-resume-btn');
-    const iframe = document.getElementById('resume-iframe');
-
-    // Open modal
-    openBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      // Reload iframe to ensure PDF loads
-      iframe.src = iframe.src;
-    });
-
-    // Close modal
-    function closeModal() {
-      modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-
-    closeBtn.addEventListener('click', closeModal);
-
-    // Close modal when clicking outside
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-      }
     });
   </script>
 </body>
