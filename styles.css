@@ -785,13 +785,36 @@ strong {
 
 @media (max-width: 768px) {
   .nav {
-    flex-wrap: wrap;
-    max-width: calc(100% - 32px);
+    /* Quitamos el wrap y hacemos scroll horizontal */
+    flex-wrap: nowrap;
+    left: 16px;
+    right: 16px;
+    transform: none;
+    width: calc(100% - 32px);
+    max-width: none;
+    
+    /* Activamos scroll horizontal */
+    overflow-x: auto;
+    overflow-y: hidden;
+    
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Ocultamos la barra de scroll */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  
+  /* Chrome/Safari */
+  .nav::-webkit-scrollbar {
+    display: none;
   }
   
   .nav-link {
-    padding: 8px 14px;
-    font-size: 0.85rem;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    flex-shrink: 0; /* Importante: evita que se compriman */
   }
 
   .name {
